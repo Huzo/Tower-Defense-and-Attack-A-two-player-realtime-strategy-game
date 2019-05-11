@@ -103,7 +103,7 @@ In the implementation, players RED and BLUE are human controlled. We useKeyboard
 all the keys pressed and send toInput_Admin. We useCourier 0andCourier 1to relay the messages
 fromInput_AdmintoGame_Adminfor the first and the second human player respectively.
 
-
+![Figure 1](https://github.com/Huzo/Tower-Defense-and-Attack-A-two-player-realtime-strategy-game/blob/master/Screenshot.png)
 ```
 Figure 1: The Administrator-and-Worker Architecture for the Game
 ```
@@ -123,78 +123,6 @@ sages for human players fromInput_AdmintoGame_Admin. On starting the game,Game_A
 asksTimerworkers to start the sleep job and replies the game start signal to human players.
 
 ## 3.2 Message types and Format
-
-Twenty message types are available for process communications:
-REGISTER_CYCLE, INIT, FAIL, CYCLE_READY, START, MOVE, UPDATE, END,
-REGISTER_TIMER, TIMER_READY, SLEEP,
-REGISTER_HUMAN, HUMAN_READY, HUMAN_MOVE,
-REGISTER_COURIER, COURIER_READY,
-DISPLAY_ARENA, OKAY, PAINTER_READY, PAINT.
-For simplicity, we use a single message format for all the communications.
-/* Type of Units */
-typedef enum {
-MINE, HOPLITE, LANCER, WALL,
-} UNIT_TYPE;
-
-/* Type of Timers */
-typedef enum {
-LANCER_TIMER, HOPLITE_TIMER, MINE_TIMER
-} TIMER_TYPE;
-
-/* Force */
-typedef enum {
-RED, BLUE
-
-
-### } FORCE;
-
-/* Action */
-typedef enum {
-NOACTION, MOVEEAST, MOVESOUTH, MOVEWEST, MOVENORTH,
-PLACELANCER, PLACEHOPLITE, UPDATEMINE, UPDATEWALL
-} ACTION;
-
-/* Coordinate */
-typedef struct {
-int x,y;
-} COORDINATE;
-
-/* Player */
-typedef struct {
-COORDINATE pos;
-FORCE force;
-int health;
-int resource;
-int unit_no;
-} PLAYER;
-
-/* Unit */
-typedef struct {
-int active;
-int highlight;
-COORDINATE pos;
-FORCE force;
-UNIT_TYPE unit_type;
-int health;
-} UNIT;
-
-/* Arena */
-typedef struct {
-UNIT units[2*MAX_UNIT];
-PLAYER players[2];
-} ARENA;
-
-/* Message Format */
-typedef struct {
-MESSAGE_TYPE type;
-TIMER_TYPE timer_type;
-int interval;
-ACTION act;
-ARENA arena;
-int key;
-int humanId;
-} MESSAGE;
-
 The message types and message formats are given in the header file “message.h”, which must
 be included in your code. **You are not allowed to have any additional message type or
 make any modification to the message format.**
