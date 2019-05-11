@@ -5,7 +5,7 @@ Assignment 1 Specification
 Concurrent Programming (Administrator-and-Worker)
 ```
 # 1 Introduction
-
+![](https://github.com/Huzo/Tower-Defense-and-Attack-A-two-player-realtime-strategy-game/blob/master/Screenshot2.png)
 In this assignment, you need to implement the real-time strategy game _Tower Defense and Attack_ ,
 which is a simplified version of _Dominance_ (https://github.com/YangVincent/Domination). You
 need to implement the game using the C programming langauge. For concurrency control, you
@@ -168,6 +168,8 @@ http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
 
 For simplicity, we use the textual user interface based on the reference output format (using the
 ncurseslibrary) as depicted in Figure 2.
+
+![](https://github.com/Huzo/Tower-Defense-and-Attack-A-two-player-realtime-strategy-game/blob/master/Screenshot2.png)
 
 ```
 Figure 2: Sample Screen Output
